@@ -69,6 +69,7 @@ if PRED instead evaluates to false, the result of this expression is the result 
 To implement 'if', we will need a way to represent Boolean values in Scheme. I chose to represent Boolean values as "#t" and "#f" in the builtt-in schemes, and added several other built-in functions such as ">", "<=", "not". 
 <br />
 <br />
+<br />
 <p align="left">
 Add support for LISTS: <br/>
 
@@ -82,26 +83,31 @@ e.g. (filter (lambda (x) (> x 0)) (list -1 2 -3 4)) produces the list (2 4).
 - (reduce FUNCTION LIST INITVAL) successively applies the given function to the elements in the list, maintaining an intermediate result along the way.
 e.g. (reduce * (list 9 8 7) 1) gives 504
 <br />
+<br />
 <p align="left">
 Consider evaluating MULTIPLE expressions:  <br/>
 Introduce a new built-in function called begin, which returns its last argument. 
 
 e.g. (begin (define x 7) (define y 8) (- x y)) should evaluate to -1.
-
-
+<br />
+<br />
+<br />
 <p align="left">
 Update EVALUATOR: <br/>
 
 Updates:
-- 'Frames' to have attributes remove_name and find_variable
-
-More things to consider:
-- 'and' should be a special form that returns True if all arguments are True. e.g. (and (> 3 2) (< 7 8)) evaluates to False.
-- 'or' should be a special form that returns True if one argument is True e.g. (or (> 3 2) (< 4 3)) evaluates to True.
-- 'del' deletes variable bindings within the current frame.
-- 'let' creates local variable definitions.
-- 'set' changes the value of an existing variable
-
+- 'Frames' to have attributes remove_name and find_variable <br/>
+<img src= "https://imgur.com/gkeEvoP.png" height="40%" width="40%" alt="Disk Sanitization Steps"/>
+<br />
+More Updates: <br/>
+- 'and' should be a special form that returns True if all arguments are True. e.g. (and (> 3 2) (< 7 8)) evaluates to False. <br/>
+- 'or' should be a special form that returns True if one argument is True e.g. (or (> 3 2) (< 4 3)) evaluates to True. <br/>
+- 'del' deletes variable bindings within the current frame. <br/>
+- 'let' creates local variable definitions. <br/>
+- 'set' changes the value of an existing variable <br/>
+ <br/>
+<img src= "https://imgur.com/evF17mM.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
+<img src= "https://imgur.com/i09VVWS.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
 
 <h2>All Helper Functions:</h2>
 - mult:  return the result of multiplying all arguments in a list<br />
