@@ -16,7 +16,7 @@ There are 2 things to be aware of. Firstly, unlike Python indentation doesn't ma
 
 e.g. tokenize("(foo (bar 3.14))") should give us the following result: ['(', 'foo', '(', 'bar', '3.14', ')', ')'].
 
-<img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/XBqK7dg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 Select the disk:  <br/>
