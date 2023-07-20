@@ -7,7 +7,7 @@ In this lab, I have implemented an interpreter for a dialect of LISP. LISP is on
 - <b>Python</b> 
 - <b>VS code</b>
 
-<h2>Program walk-through:</h2>
+<h2>Program walk-through PART 1</h2>
 
 <p align="left">
 Create TOKENIZER:<br/>
@@ -57,3 +57,7 @@ evaluate(['+', 3, 7, 2]), corresponding to (+ 3 7 2), return 12.
 <br />
 <img src="https://imgur.com/biDEZuZ.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
 <br />
+
+<h2>Program walk-through PART 2</h2>
+
+<h2>All Helper Functions:</h2>
