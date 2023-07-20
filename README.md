@@ -18,7 +18,7 @@ There are 2 things to be aware of. Firstly, unlike Python indentation doesn't ma
 
 e.g. tokenize("(foo (bar 3.14))") should give us the following result: ['(', 'foo', '(', 'bar', '3.14', ')', ')'].
 
-<img src="https://imgur.com/XBqK7dg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/XBqK7dg.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 
@@ -28,3 +28,7 @@ Create Parser:<br/>
 This function takes a single input (a list of tokens as produced by tokenize) and returns a representation of the expression, where: a number is represented as its Python type (i.e., integers as int and decimals as float), a symbol represented as a string, and an S-expression is represented as a list of its parsed subexpressions.
 
 e.g. given the circle-area definition, it should parse as follows: ['define', 'circle-area', ['lambda', ['r'], ['*', 3.14, ['*', 'r', 'r']]]]
+
+<img src="https://imgur.com/HVZIZYu.png" height="40%" width="40%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
