@@ -60,4 +60,37 @@ evaluate(['+', 3, 7, 2]), corresponding to (+ 3 7 2), return 12.
 
 <h2>Program walk-through PART 2</h2>
 
+<p align="left">
+Add support for CONDITIONAL execution: <br/>
+
+This is done via the 'if' special form, which has the following form: (if PRED TRUE_EXP FALSE_EXP). To evaluate this form, we need to first evaluate PRED (the predicate). If PRED evaluates to true, the result of this expression is the result of evaluating TRUE_EXP; 
+if PRED instead evaluates to false, the result of this expression is the result of evaluating FALSE_EXP. 
+
+To implement 'if', we will need a way to represent Boolean values in Scheme. I chose to represent Boolean values as "#t" and "#f" in the builtt-in schemes, and added several other built-in functions such as ">", "<=", "not". 
+
+<p align="left">
+Update EVALUATOR: <br/>
+More things to consider:
+- 'and' should be a special form that returns True if all arguments are True. e.g. (and (> 3 2) (< 7 8)) evaluates to False.
+- 'or' should be a special form that returns True if one argument is True e.g. (or (> 3 2) (< 4 3)) evaluates to True.
+
+
+
 <h2>All Helper Functions:</h2>
+- mult: return the result of multiplying all arguments in a list<br />
+- div: return the result of dividing the first argument of a list by everything in a list<br />
+- equal: returns True if all arguments in a list are equal, else False <br />
+- greater: returns True if list is in decreasing order, else False <br />
+- greater_or_equal: returns True if list is in non-increasing order, else False <br />
+- less: returns True if list is in increasing order, else False <br />
+- less: returns True if list is in non-decreasing order, else False <br />
+- negative: built-in function that takes a single argument (list of len 1) and evaluates to False if its argument is True, vice versa <br />
+- cons: returns a new pair of (car, cdr), given a list <br />
+- get_car: returns 1st element of a list of a cons cell (cons cell e.g. (cons 1 2) - returns the 'car' 1) <br />
+- get_cdr: returns 2nd element of a list of a cons cell (cons cell e.g. (cons 1 2) - returns the 'cdr' 2) <br />
+- make_list: makes a scheme list, represented as a Pair, given a list <br />
+- is_linkedlist: takes an args list of length 1 which contains an object, and returns True if that object is a linked list (this is list in scheme), else False (list in scheme is represented as a Pair) <br />
+- length: returns the length of a list <br />
+- list_ref: takes a list and a nonnegative index, and returns the element at the given index in the given list <br />
+- append_two_schemelists: returns a new list representing the concatenation of two given lists <br />
+- append: returns a new list representing the concatenation of an arbitrary number of lists. <br />
