@@ -91,10 +91,16 @@ e.g. (begin (define x 7) (define y 8) (- x y)) should evaluate to -1.
 
 <p align="left">
 Update EVALUATOR: <br/>
+
+Updates:
+- 'Frames' to have attributes remove_name and find_variable
+
 More things to consider:
 - 'and' should be a special form that returns True if all arguments are True. e.g. (and (> 3 2) (< 7 8)) evaluates to False.
 - 'or' should be a special form that returns True if one argument is True e.g. (or (> 3 2) (< 4 3)) evaluates to True.
-
+- 'del' deletes variable bindings within the current frame.
+- 'let' creates local variable definitions.
+- 'set' changes the value of an existing variable
 
 
 <h2>All Helper Functions:</h2>
