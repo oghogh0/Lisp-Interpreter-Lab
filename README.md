@@ -10,7 +10,7 @@ In this lab, I have implemented an interpreter for a dialect of LISP. LISP is on
 <h2>Program walk-through:</h2>
 
 <p align="left">
-Create Tokenizer:<br/>
+Create TOKENIZER:<br/>
 
 This function splits an input string into meaningful tokens, and returns a list of strings which represent meaningful units in the syntax of the programming language. <br/>
 
@@ -23,7 +23,7 @@ e.g. tokenize("(foo (bar 3.14))") should give us the following result: ['(', 'fo
 <br />
 
 <p align="left">
-Create Parser:<br/>
+Create PARSER:<br/>
 
 This function takes a single input (a list of tokens as produced by tokenize) and returns a representation of the expression, where: a number is represented as its Python type (i.e., integers as int and decimals as float), a symbol represented as a string, and an S-expression is represented as a list of its parsed subexpressions.
 
@@ -31,4 +31,29 @@ e.g. given the circle-area definition, it should parse as follows: ['define', 'c
 
 <img src="https://imgur.com/HVZIZYu.png" height="40%" width="40%" alt="Disk Sanitization Steps"/>
 <br />
+<br />
+
+<p align="left">
+Create EVALUATOR:<br/>
+
+Given the syntax tree (a fully parsed expression) and its working frame, this function evaluates it according to the rules of the Scheme language.
+
+Things to consider:
+- Add mathematical operations to the built-in functions dictionary
+- Consider different special forms such as 'define' and 'lambda'
+- Create a 'Frames' class that has attributes to add and search a name
+- Create a 'Functions' class that has a 'call' attribute 
+- If a symbol exists as a key in the frame (or a parent frame), evaluate returns the associated value.
+- Given a compound expression representing a function call, each of the subexpressions should be evaluated in the given frame.
+
+ 
+Examples:
+evaluate('+') returns the function object associated with addition.
+evaluate(3.14) return 3.14.
+evaluate(['+', 3, 7, 2]), corresponding to (+ 3 7 2), return 12.
+(Note that this should work for nested expressions as well. evaluate(['+', 3, ['-', 7, 5]]), corresponding to (+ 3 (- 7 5)), should return 5.)
+
+<img src="https://imgur.com/wrvMiCn.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
+<br />
+<img src="https://imgur.com/biDEZuZ.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
 <br />
