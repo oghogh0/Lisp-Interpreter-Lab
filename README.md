@@ -67,6 +67,27 @@ This is done via the 'if' special form, which has the following form: (if PRED T
 if PRED instead evaluates to false, the result of this expression is the result of evaluating FALSE_EXP. 
 
 To implement 'if', we will need a way to represent Boolean values in Scheme. I chose to represent Boolean values as "#t" and "#f" in the builtt-in schemes, and added several other built-in functions such as ">", "<=", "not". 
+<br />
+<br />
+<p align="left">
+Add support for LISTS: <br/>
+
+In Scheme, I have represented lists as linked lists. Other steps involved in adding support for lists are: creating a 'Pair' class to represent a cons cell (consists of 2 values: car, cdr) and creating helper functions. These helper functions include one that constructs a list (make_list), finds its length (length), return an element at a given index (list_ref), concatenate lists (append_two_schemelists, append). 
+
+Beyond these functions, the following will allow us to easily construct new lists from existing ones. 
+- (map FUNCTION LIST) returns a new list containing the results of applying the given function to each element of the given list
+e.g. (map (lambda (x) (* 2 x)) (list 1 2 3)) produces the list (2 4 6).
+- (filter FUNCTION LIST) returns a new list with only the elements of the given list for which the given function returns True.
+e.g. (filter (lambda (x) (> x 0)) (list -1 2 -3 4)) produces the list (2 4).
+- (reduce FUNCTION LIST INITVAL) successively applies the given function to the elements in the list, maintaining an intermediate result along the way.
+e.g. (reduce * (list 9 8 7) 1) gives 504
+<br />
+<p align="left">
+Consider evaluating MULTIPLE expressions:  <br/>
+Introduce a new built-in function called begin, which returns its last argument. 
+
+e.g. (begin (define x 7) (define y 8) (- x y)) should evaluate to -1.
+
 
 <p align="left">
 Update EVALUATOR: <br/>
@@ -77,20 +98,20 @@ More things to consider:
 
 
 <h2>All Helper Functions:</h2>
-- mult: return the result of multiplying all arguments in a list<br />
-- div: return the result of dividing the first argument of a list by everything in a list<br />
-- equal: returns True if all arguments in a list are equal, else False <br />
-- greater: returns True if list is in decreasing order, else False <br />
-- greater_or_equal: returns True if list is in non-increasing order, else False <br />
-- less: returns True if list is in increasing order, else False <br />
-- less: returns True if list is in non-decreasing order, else False <br />
-- negative: built-in function that takes a single argument (list of len 1) and evaluates to False if its argument is True, vice versa <br />
-- cons: returns a new pair of (car, cdr), given a list <br />
-- get_car: returns 1st element of a list of a cons cell (cons cell e.g. (cons 1 2) - returns the 'car' 1) <br />
-- get_cdr: returns 2nd element of a list of a cons cell (cons cell e.g. (cons 1 2) - returns the 'cdr' 2) <br />
-- make_list: makes a scheme list, represented as a Pair, given a list <br />
-- is_linkedlist: takes an args list of length 1 which contains an object, and returns True if that object is a linked list (this is list in scheme), else False (list in scheme is represented as a Pair) <br />
-- length: returns the length of a list <br />
-- list_ref: takes a list and a nonnegative index, and returns the element at the given index in the given list <br />
-- append_two_schemelists: returns a new list representing the concatenation of two given lists <br />
-- append: returns a new list representing the concatenation of an arbitrary number of lists. <br />
+- mult:  return the result of multiplying all arguments in a list<br />
+- div:  return the result of dividing the first argument of a list by everything in a list<br />
+- equal:  returns True if all arguments in a list are equal, else False <br />
+- greater:  returns True if list is in decreasing order, else False <br />
+- greater_or_equal:  returns True if list is in non-increasing order, else False <br />
+- less:  returns True if list is in increasing order, else False <br />
+- less:  returns True if list is in non-decreasing order, else False <br />
+- negative:  built-in function that takes a single argument (list of len 1) and evaluates to False if its argument is True, vice versa <br />
+- cons:  returns a new pair of (car, cdr), given a list <br />
+- get_car:  returns 1st element of a list of a cons cell (cons cell e.g. (cons 1 2) - returns the 'car' 1) <br />
+- get_cdr:  returns 2nd element of a list of a cons cell (cons cell e.g. (cons 1 2) - returns the 'cdr' 2) <br />
+- make_list:  makes a scheme list, represented as a Pair, given a list <br />
+- is_linkedlist:  takes a list of length 1 which contains an object, and returns True if that object is a linked list (this is list in scheme), else False (list in scheme is represented as a Pair) <br />
+- length:  returns the length of a list <br />
+- list_ref:  takes a list and a nonnegative index, and returns the element at the given index in the given list <br />
+- append_two_schemelists:  returns a new list representing the concatenation of two given lists <br />
+- append:  returns a new list representing the concatenation of an arbitrary number of lists. <br />
