@@ -18,7 +18,7 @@ There are 2 things to be aware of. Firstly, unlike Python indentation doesn't ma
 
 e.g. tokenize("(foo (bar 3.14))") should give us the following result: ['(', 'foo', '(', 'bar', '3.14', ')', ')'].
 
-<img src="https://imgur.com/XBqK7dg.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/XBqK7dg.png" height="50%" width="50%"/>
 <br />
 <br />
 
@@ -29,7 +29,7 @@ This function takes a single input (a list of tokens as produced by tokenize) an
 
 e.g. given the circle-area definition, it should parse as follows: ['define', 'circle-area', ['lambda', ['r'], ['*', 3.14, ['*', 'r', 'r']]]]
 
-<img src="https://imgur.com/HVZIZYu.png" height="40%" width="40%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/HVZIZYu.png" height="40%" width="40%"/>
 <br />
 <br />
 
@@ -53,9 +53,9 @@ evaluate(3.14) return 3.14.
 evaluate(['+', 3, 7, 2]), corresponding to (+ 3 7 2), return 12.
 (Note that this should work for nested expressions as well. evaluate(['+', 3, ['-', 7, 5]]), corresponding to (+ 3 (- 7 5)), should return 5.)
 
-<img src="https://imgur.com/wrvMiCn.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/wrvMiCn.png" height="50%" width="50%"/>
 <br />
-<img src="https://imgur.com/biDEZuZ.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/biDEZuZ.png" height="50%" width="50%"/>
 <br />
 
 <h2>Program walk-through PART 2</h2>
@@ -97,7 +97,7 @@ Update EVALUATOR: <br/>
 
 Updates:
 - 'Frames' to have attributes remove_name and find_variable <br/>
-<img src= "https://imgur.com/gkeEvoP.png" height="40%" width="40%" alt="Disk Sanitization Steps"/>
+<img src= "https://imgur.com/gkeEvoP.png" height="40%" width="40%"/>
 <br />
 More Updates: <br/>
 - 'and' should be a special form that returns True if all arguments are True. e.g. (and (> 3 2) (< 7 8)) evaluates to False. <br/>
@@ -106,8 +106,8 @@ More Updates: <br/>
 - 'let' creates local variable definitions. <br/>
 - 'set' changes the value of an existing variable <br/>
  <br/>
-<img src= "https://imgur.com/evF17mM.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
-<img src= "https://imgur.com/i09VVWS.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
+<img src= "https://imgur.com/evF17mM.png" height="50%" width="50%"/>
+<img src= "https://imgur.com/i09VVWS.png" height="50%" width="50%"/>
 
 <h2>All Helper Functions:</h2>
 - mult:  return the result of multiplying all arguments in a list<br />
